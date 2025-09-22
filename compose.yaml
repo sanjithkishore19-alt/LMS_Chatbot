@@ -3,17 +3,17 @@ services:
     image: python:3.11
     build:
       context: ./backend
-    run: python app.py
+    command: python app.py
     ports:
       - 5000
-    env:
+    environment:
       FLASK_ENV: production
 
   java-service:
     image: openjdk:17
     build:
       context: ./java-service
-    run: java -jar chatbot.jar
+    command: java -jar chatbot.jar
     ports:
       - 8080
 
