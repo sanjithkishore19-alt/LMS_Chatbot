@@ -21,6 +21,5 @@ services:
     image: nginx:latest
     build:
       context: ./frontend
-    static: true
     ports:
       - 80
