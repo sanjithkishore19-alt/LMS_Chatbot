@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: python:3.11
+    build:
+      context: ./backend
+    run: python app.py
+    ports:
+      - 5000
+    env:
+      FLASK_ENV: production
+
+  java-service:
+    image: openjdk:17
+    build:
+      context: ./java-service
+    run: java -jar chatbot.jar
+    ports:
+      - 8080
+
+  frontend:
+    image: nginx:latest
+    build:
+      context: ./frontend
+    static: true
+    ports:
+      - 80
